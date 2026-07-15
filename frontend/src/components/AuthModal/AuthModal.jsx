@@ -18,7 +18,7 @@ function AuthModal({ isOpen, onClose, onLoginSuccess }) {
     setLoading(true);
     setError(null);
     try {
-      const data = await api.login(email, password);
+      await api.login(email, password);
       alert("Login successfully");
       onLoginSuccess();
       onClose();

@@ -8,7 +8,6 @@ function FeaturedPlaces({ activeCategory, activeSearch, activeDistrict, onViewDe
   const [places, setPlaces] = useState([]);
   const [filter, setFilter] = useState("All");
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
 
   // Sync activeCategory from search/category sections
   useEffect(() => {
@@ -17,73 +16,50 @@ function FeaturedPlaces({ activeCategory, activeSearch, activeDistrict, onViewDe
     }
   }, [activeCategory]);
 
-  const fetchPlaces = async () => {
-    setLoading(true);
-    try {
-      // Query parameters for backend search
-      const data = await api.getPlaces(
-        activeSearch || "",
-        filter === "All" ? "" : filter,
-        activeDistrict || ""
-      );
-      
-      if (data && data.length > 0) {
-        setPlaces(data);
-        setError(null);
-      } else {
-        // Fallback to local places if backend returns empty list (and search matches locally)
-        filterLocalPlaces();
-      }
-    } catch (err) {
-      console.warn("Backend offline or error. Using local fallback data:", err.message);
-      filterLocalPlaces();
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const filterLocalPlaces = () => {
+  const filterLocalPlaces = (currentFilter) => {
     let filtered = localPlaces;
-    
-    // Filter by category
-    if (filter !== "All") {
-      filtered = filtered.filter(p => p.category.toLowerCase() === filter.toLowerCase());
+
+    if (currentFilter !== "All") {
+      filtered = filtered.filter(p => p.category.toLowerCase() === currentFilter.toLowerCase());
     }
-    
-    // Filter by district
     if (activeDistrict) {
       filtered = filtered.filter(p =>
         p.district.toLowerCase().includes(activeDistrict.toLowerCase())
       );
     }
-    
-    // Filter by active search query
     if (activeSearch) {
-      filtered = filtered.filter(p => 
+      filtered = filtered.filter(p =>
         p.name.toLowerCase().includes(activeSearch.toLowerCase()) ||
         p.district.toLowerCase().includes(activeSearch.toLowerCase())
       );
     }
-
     setPlaces(filtered);
   };
 
   useEffect(() => {
+    const fetchPlaces = async () => {
+      setLoading(true);
+      try {
+        const data = await api.getPlaces(
+          activeSearch || "",
+          filter === "All" ? "" : filter,
+          activeDistrict || ""
+        );
+        if (data && data.length > 0) {
+          setPlaces(data);
+        } else {
+          filterLocalPlaces(filter);
+        }
+      } catch (err) {
+        console.warn("Backend offline or error. Using local fallback data:", err.message);
+        filterLocalPlaces(filter);
+      } finally {
+        setLoading(false);
+      }
+    };
     fetchPlaces();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filter, activeSearch, activeDistrict]);
-
-  const handleSeedDatabase = async () => {
-    setLoading(true);
-    try {
-      await api.seedPlaces();
-      alert("Sample places successfully seeded in MongoDB!");
-      fetchPlaces();
-    } catch (err) {
-      alert("Could not seed database. Ensure MongoDB & backend server are running on port 5000: " + err.message);
-    } finally {
-      setLoading(false);
-    }
-  };
 
   return (
     <section className="featured-places" id="featured-places-section">
@@ -106,8 +82,6 @@ function FeaturedPlaces({ activeCategory, activeSearch, activeDistrict, onViewDe
           </button>
         ))}
       </div>
-
-
 
       {loading ? (
         <div style={{ textAlign: "center", padding: "40px", fontSize: "20px" }}>Loading heritage sites...</div>
