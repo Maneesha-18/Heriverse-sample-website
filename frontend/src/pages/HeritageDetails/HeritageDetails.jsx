@@ -4,7 +4,7 @@ import localPlaces from "../../components/FeaturedPlaces/data";
 import { api } from "../../services/api";
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
-import { FaClock, FaCloudSun, FaMapMarkerAlt, FaStar, FaVolumeUp } from "react-icons/fa";
+import { FaArrowLeft, FaClock, FaCloudSun, FaMapMarkerAlt, FaStar, FaVolumeUp } from "react-icons/fa";
 
 function HeritageDetails({ navigateTo, placeId }) {
   const [place, setPlace] = useState(null);

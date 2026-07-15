@@ -22,6 +22,15 @@ function Home({ navigateTo }) {
     setIsLoggedIn(!!token);
   }, []);
 
+  const handleSearch = ({ search, district, category }) => {
+    setSearchQuery(search);
+    setSelectedDistrict(district && district !== "District" ? district : "");
+    if (category && category !== "Category") {
+      setSelectedCategory(category);
+    } else if (!category || category === "Category") {
+      setSelectedCategory("All");
+    }
+  };
 
   const handleSelectCategory = (category) => {
     setSelectedCategory(category);
