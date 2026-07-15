@@ -1,0 +1,32 @@
+.search-section{
+    background:#f8f1e4;
+    padding:80px 50px;
+    text-align:center;
+}
+.search-section h2{
+    font-size:40px;
+    color:#6b3d14;
+    margin-bottom:40px;
+}
+.search-box{
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr auto;
+    gap:20px;
+}
+.search-box input,
+.search-box select{
+    padding:18px;
+    border-radius:12px;
+    border:none;
+    font-size:18px;
+}
+.search-box button{
+    padding:18px 35px;
+    border:none;
+    border-radius:12px;
+    background:#8B4513;
+    color:white;
+    cursor:pointer;
+}

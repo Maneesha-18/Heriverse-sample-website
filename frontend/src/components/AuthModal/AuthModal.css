@@ -1,0 +1,212 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.modal-card {
+  background: white;
+  width: 90%;
+  max-width: 460px;
+  border-radius: 18px;
+  padding: 35px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+  border: 1px solid #EAD6B8;
+  position: relative;
+  animation: slideUp 0.3s ease-out;
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: transparent;
+  border: none;
+  font-size: 28px;
+  color: #888;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.close-btn:hover {
+  color: #6D3B16;
+}
+
+.modal-title {
+  font-family: 'Cinzel', serif;
+  color: #6D3B16;
+  font-size: 26px;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 6px;
+}
+
+.modal-subtitle {
+  color: #666;
+  text-align: center;
+  font-size: 14px;
+  margin-top: 0;
+  margin-bottom: 25px;
+}
+
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.input-group label {
+  color: #6D3B16;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.input-group input {
+  padding: 10px 14px;
+  border: 1px solid #EAD6B8;
+  border-radius: 8px;
+  font-size: 15px;
+  outline: none;
+  background: #fdfaf5;
+  transition: 0.3s;
+}
+
+.input-group input:focus {
+  border-color: #6D3B16;
+  background: white;
+}
+
+.modal-submit-btn {
+  background: #6D3B16;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-top: 5px;
+}
+
+.modal-submit-btn:hover:not(:disabled) {
+  background: #8b4d1d;
+}
+
+.modal-submit-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.modal-error {
+  background: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 13px;
+  margin-bottom: 18px;
+  text-align: center;
+}
+
+.divider {
+  text-align: center;
+  border-bottom: 1px solid #EAD6B8;
+  line-height: 0.1em;
+  margin: 20px 0;
+}
+
+.divider span {
+  background: white;
+  padding: 0 10px;
+  color: #888;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.google-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 11px;
+  background: white;
+  border: 1px solid #EAD6B8;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #555;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.google-btn:hover {
+  background: #fdfaf5;
+  border-color: #6D3B16;
+}
+
+.google-logo {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25px;
+  font-size: 13px;
+  color: #6D3B16;
+}
+
+.modal-footer span {
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.modal-footer span:hover {
+  color: #b57a33;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@media (max-width: 500px) {
+  .modal-card {
+    width: 95%;
+    padding: 24px 18px;
+    border-radius: 14px;
+  }
+  .modal-title {
+    font-size: 22px;
+  }
+  .modal-footer {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
+}

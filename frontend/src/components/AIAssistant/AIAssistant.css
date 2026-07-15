@@ -1,0 +1,240 @@
+.ai-assistant-section {
+  padding: 80px 4%;
+  background: #FDF8EF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ai-container {
+  width: 100%;
+  max-width: 800px;
+  background: #fff;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+  border: 1px solid #EAD6B8;
+  display: flex;
+  flex-direction: column;
+  height: 550px;
+}
+
+.ai-header {
+  background: #6D3B16;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.ai-header h3 {
+  font-family: 'Cinzel', serif;
+  font-size: 24px;
+  margin: 0;
+}
+
+.ai-header p {
+  font-size: 14px;
+  color: #FFD56B;
+  margin: 5px 0 0;
+  font-weight: 500;
+}
+
+.ai-chat-box {
+  flex: 1;
+  padding: 24px;
+  overflow-y: auto;
+  background-image: url('../../assets/images/kalvettu_bg.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: local;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.ai-message {
+  display: flex;
+  gap: 12px;
+  max-width: 80%;
+}
+
+.ai-message.user {
+  align-self: flex-end;
+  flex-direction: row-reverse;
+}
+
+.ai-message.ai {
+  align-self: flex-start;
+}
+
+.ai-message .avatar {
+  width: 40px;
+  height: 40px;
+  background: #EAD6B8;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  flex-shrink: 0;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+.ai-message.user .avatar {
+  background: #6D3B16;
+  color: white;
+}
+
+.message-content {
+  background: #fff;
+  padding: 12px 18px;
+  border-radius: 18px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  border: 1px solid #EAD6B8;
+  color: #333;
+}
+
+.ai-message.user .message-content {
+  background: #6D3B16;
+  color: white;
+  border-color: #6D3B16;
+  border-bottom-right-radius: 4px;
+}
+
+.ai-message.ai .message-content {
+  border-bottom-left-radius: 4px;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(2px);
+  color: #3a1a00;
+  border: 1px solid rgba(234, 214, 184, 0.6);
+  text-shadow: none;
+}
+
+.message-content p {
+  margin: 6px 0;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.ai-input-form {
+  display: flex;
+  padding: 15px;
+  background: #fff;
+  border-top: 1px solid #EAD6B8;
+  gap: 10px;
+}
+
+.ai-input-form input {
+  flex: 1;
+  padding: 14px 20px;
+  border: 1px solid #EAD6B8;
+  border-radius: 25px;
+  font-size: 16px;
+  outline: none;
+  background: #fdfaf5;
+  transition: 0.3s;
+}
+
+.ai-input-form input:focus {
+  border-color: #6D3B16;
+  background: #fff;
+}
+
+.ai-input-form button {
+  background: #6D3B16;
+  color: white;
+  border: none;
+  padding: 0 25px;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.ai-input-form button:hover:not(:disabled) {
+  background: #8b4d1d;
+  transform: translateY(-2px);
+}
+
+.ai-input-form button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+/* Loading Dots Animation */
+.ai-message.loading .message-content {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 15px 20px;
+}
+
+.ai-message.loading .dot {
+  width: 8px;
+  height: 8px;
+  background: #6D3B16;
+  border-radius: 50%;
+  animation: pulse 1.4s infinite ease-in-out both;
+}
+
+.ai-message.loading .dot:nth-child(1) {
+  animation-delay: -0.32s;
+}
+
+.ai-message.loading .dot:nth-child(2) {
+  animation-delay: -0.16s;
+}
+
+@keyframes pulse {
+  0%, 80%, 100% {
+    transform: scale(0);
+  }
+  40% {
+    transform: scale(1.0);
+  }
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .ai-container {
+    height: 480px;
+  }
+  .ai-header h3 {
+    font-size: 20px;
+  }
+  .ai-input-form input {
+    font-size: 14px;
+    padding: 12px 16px;
+  }
+  .ai-input-form button {
+    padding: 0 18px;
+    font-size: 14px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 580px) {
+  .ai-assistant-section {
+    padding: 50px 12px;
+  }
+  .ai-container {
+    height: 420px;
+    border-radius: 12px;
+  }
+  .ai-message {
+    max-width: 95%;
+  }
+  .ai-input-form {
+    padding: 10px;
+    gap: 8px;
+  }
+  .ai-input-form input {
+    font-size: 13px;
+    padding: 10px 14px;
+  }
+  .ai-input-form button {
+    padding: 0 14px;
+    font-size: 13px;
+  }
+}

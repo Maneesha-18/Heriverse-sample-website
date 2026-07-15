@@ -1,0 +1,136 @@
+.place-card{
+    background:#fff;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 8px 20px rgba(0,0,0,0.15);
+    transition:0.4s;
+    display:flex;
+    flex-direction:column;
+    width:100%;
+}
+.place-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 15px 35px rgba(0,0,0,0.25);
+}
+.place-image{
+    position:relative;
+    width:100%;
+    height:200px;
+    overflow:hidden;
+}
+.place-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:0.4s;
+}
+.place-card:hover .place-image img{
+    transform:scale(1.08);
+}
+.unesco-badge{
+    position:absolute;
+    top:12px;
+    right:12px;
+    background:#C89B3C;
+    color:#fff;
+    padding:6px 12px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:600;
+}
+.place-content{
+    padding:15px;
+    flex:1;
+    display:flex;
+    flex-direction:column;
+}
+.rating{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    color:#f5b400;
+    font-weight:600;
+    margin-bottom:8px;
+    white-space:nowrap;
+    flex-shrink:0;
+}
+.star{
+    color:#f5b400;
+}
+.place-content h3{
+    color:#6D3B16;
+    font-size:clamp(16px, 2vw, 22px);
+    margin-bottom:8px;
+    font-family:'Cinzel',serif;
+    line-height:1.3;
+}
+.location{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    color:#666;
+    margin-bottom:8px;
+    font-size:14px;
+}
+.category{
+    display:inline-block;
+    background:#F4E5C2;
+    color:#6D3B16;
+    padding:4px 10px;
+    border-radius:20px;
+    font-size:13px;
+    font-weight:600;
+    margin-bottom:12px;
+}
+.info p{
+    margin:6px 0;
+    color:#444;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-size:13px;
+}
+.card-buttons{
+    display:flex;
+    justify-content:space-between;
+    margin-top:auto;
+    padding-top:12px;
+    gap:8px;
+}
+.wishlist-btn,
+.audio-btn{
+    flex:1;
+    border:none;
+    padding:9px 6px;
+    border-radius:10px;
+    cursor:pointer;
+    background:#f2f2f2;
+    transition:.3s;
+    font-weight:600;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:4px;
+    font-size:13px;
+}
+.wishlist-btn:hover{
+    background:#ffdddd;
+}
+.audio-btn:hover{
+    background:#dff4ff;
+}
+.details-btn{
+    width:100%;
+    margin-top:10px;
+    border:none;
+    background:#6D3B16;
+    color:white;
+    padding:11px;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:15px;
+    transition:.3s;
+}
+.details-btn:hover{
+    background:#8a4d1b;
+}

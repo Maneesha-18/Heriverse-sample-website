@@ -1,0 +1,136 @@
+.profile-page {
+  padding: 100px 20px 60px;
+  background-color: #F8F1E5;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.profile-container {
+  max-width: 800px;
+  margin: 0 auto;
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(109, 59, 22, 0.15);
+  border: 1px solid #EAD6B8;
+}
+
+.profile-header {
+  text-align: center;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #EAD6B8;
+}
+
+.profile-header h2 {
+  font-family: "Cinzel", serif;
+  color: #6D3B16;
+  font-size: 32px;
+}
+
+.profile-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.form-group label {
+  font-size: 14px;
+  color: #6D3B16;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  background-color: #fff;
+  color: #333;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #6D3B16;
+  box-shadow: 0 0 5px rgba(109, 59, 22, 0.3);
+}
+
+.profile-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.btn-primary {
+  background: #6D3B16;
+  color: #FFD56B;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.btn-primary:hover {
+  background: #542b0f;
+}
+
+.btn-secondary {
+  background: #ccc;
+  color: #333;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.btn-secondary:hover {
+  background: #b3b3b3;
+}
+
+.loading-text {
+  text-align: center;
+  font-size: 18px;
+  color: #666;
+}
+
+.error-text {
+  color: red;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+@media (max-width: 600px) {
+  .profile-page {
+    padding: 80px 12px 40px;
+  }
+  .profile-container {
+    padding: 24px 16px;
+    border-radius: 8px;
+  }
+  .profile-header h2 {
+    font-size: 24px;
+  }
+  .profile-actions {
+    flex-direction: column-reverse;
+    gap: 12px;
+  }
+  .btn-primary, .btn-secondary {
+    width: 100%;
+    text-align: center;
+  }
+}

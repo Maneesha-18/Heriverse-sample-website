@@ -1,0 +1,51 @@
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #F8F1E5;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Ensure all sections don't overflow on small screens */
+section {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Global arrow-only back button */
+.back-home-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #6D3B16;
+  color: #FFD56B;
+  border: 2px solid #FFD56B;
+  font-size: 20px;
+  cursor: pointer;
+  transition: background 0.25s, color 0.25s, transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(109,59,22,0.18);
+  margin: 12px 0;
+  line-height: 1;
+}
+
+.back-home-arrow:hover {
+  background: #FFD56B;
+  color: #6D3B16;
+  transform: scale(1.12);
+  box-shadow: 0 4px 16px rgba(109,59,22,0.28);
+}
